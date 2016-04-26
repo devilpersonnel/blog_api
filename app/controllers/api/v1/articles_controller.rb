@@ -1,8 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
   respond_to :json
-  def index
-    respond_with Article.all
-  end
   def create
     article = Article.new(article_params)
     if article.save
