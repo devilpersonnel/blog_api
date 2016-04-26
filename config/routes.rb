@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   namespace :api, :defaults => {format: 'json'} do
     namespace :v1 do
-
+      resources :articles, :only => [:show, :create, :update, :destroy] do
+        resources :comments
+      end
     end
   end
 
