@@ -1,15 +1,15 @@
-POST /api/v1/articles/10/comments HTTP/1.1
-Host: localhost:3000
-Parameter example:
-{"comment":{"commenter": "MilanDai","body":"Does it really works"}}
-Returns success status: 201 created and the message below if comment is created
-{
-  "comment": {
-    "id": 10,
-    "commenter": "MilanDai",
-    "body": "Does it really works",
-    "article_id": 10,
-    "created_at": "2016-04-26T22:00:31.786Z",
-    "updated_at": "2016-04-26T22:00:31.786Z"
-  }
-}
+=== POST /api/v1/articles/10/comments HTTP/1.1
+    Host: localhost:3000
+    Parameter example:
+    {"comment":{"commenter": "MilanDai","body":"Does it really works"}}
+    Returns success status: 201 created and the message below if comment is created
+    {
+      "comment": {
+        "id": 10,
+        "commenter": "MilanDai",
+        "body": "Does it really works",
+        "article_id": 10,
+        "created_at": "2016-04-26T22:00:31.786Z",
+        "updated_at": "2016-04-26T22:00:31.786Z"
+      }
+    }
