@@ -29,7 +29,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   private
   def check_for_article
-    @article=Article.where(id: params[:id]).last
+    @article = Article.where(id: params[:id]).last
     return render json: {error: "article not found"}, status: 404 unless @article.present?
   end
   def article_params
