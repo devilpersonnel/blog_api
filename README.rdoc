@@ -1,15 +1,18 @@
-=== POST /api/v1/articles/10/comments HTTP/1.1
+=== POST /api/v1/articles/18/comments HTTP/1.1
     Host: localhost:3000
     Parameter example:
-    {"comment":{"commenter": "MilanDai","body":"Does it really works"}}
-    Returns success status: 201 created and the message below if comment is created
+    {"comment":{"commenter": "Milan","body":"Nice article, it is always nice to study your work."}}
+    Returns success status: "201 created" and the message below when comment is created
     {
       "comment": {
-        "id": 10,
-        "commenter": "MilanDai",
-        "body": "Does it really works",
-        "article_id": 10,
-        "created_at": "2016-04-26T22:00:31.786Z",
-        "updated_at": "2016-04-26T22:00:31.786Z"
+        "id": 20,
+        "commenter": "Milan",
+        "body": "Nice article, it is always nice to study your work.",
+        "created_at": "2016-05-01T11:08:41.170Z",
+        "updated_at": "2016-05-01T11:08:41.170Z",
+        "article": {
+          "id": 18,
+          "title": "Ruby on Rails"
+        }
       }
     }
