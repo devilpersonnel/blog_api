@@ -1,3 +1,4 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :commenter, :body, :article_id, :created_at, :updated_at
+  attributes :id, :commenter, :body, :created_at, :updated_at
+  has_one :article, only: [:id, :title]
 end
