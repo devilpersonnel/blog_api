@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
@@ -42,16 +41,15 @@ group :development do
   gem 'sqlite3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  #pry for debugging
+  # pry for debugging
   gem 'pry-rails'
 end
 
-group :pg do
-  #Using postgresql for the production environment
+group :production do
+  # Using postgresql for the production environment
   gem 'pg'
 end
 
-#API
+# API
 gem 'active_model_serializers'
 gem 'responders', '~> 2.0'
-
