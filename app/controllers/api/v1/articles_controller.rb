@@ -1,32 +1,39 @@
 class Api::V1::ArticlesController < ApplicationController
+  before_action :check_for_article, only: [:show, :update, :destroy]
   respond_to :json
+  def index
+    respond_with Article.all
+  end
   def create
     article = Article.new(article_params)
     if article.save
       render json: article, status: 201
     else
-      render json: { errors: article.errors }, status: 422
+      render json: { error: article.errors.full_messages }, status: 422
     end
   end
   def show
-    respond_with Article.find(params[:id])
+    render json: @article
   end
   def update
-    article = Article.find(params[:id])
-    if article.update(article_params)
-      render json: article, status: 200
+    if @article.update(article_params)
+      render json: @article, status: 200
     else
-      render json: { errors: article.errors }, status: 422
+      render json: {error: @article.errors.full_messages }, status: 422
     end
   end
   def destroy
-    article = Article.find(params[:id])
-    article.destroy
-    head 204
+    @article.destroy
+    render json: {success: "article was deleted"}
   end
 
   private
+  def check_for_article
+    @article=Article.where(id: params[:id]).last
+    return render json: {error: "article not found"}, status: 404 unless @article.present?
+  end
   def article_params
     params.require(:article).permit(:title, :description)
   end
+
 end
